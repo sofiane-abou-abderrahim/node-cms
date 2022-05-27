@@ -2986,6 +2986,17 @@ app.listen(port, () => {
 
 Now, we need to do all these steps again in the terminal
 => git add .
+=> git commit -m"fixed port issue"
+=> git push heroku master
+
+So, this is how it works:
+Every time you make some type of change, you go git add ., git commit -m and write the message
+and then push it to your application.
+
+Refresh the app in heroku,
+there is still an error
+Let's go to package.json, in scripts and put "start" instead of "test" and put "node app.js" instead of "echo \"Error: no test specified\" && exit 1"
+So this way, Heroku knows exactly what to do with our application
 
 
 //////////////// Section 26 Extra Features - Deployment - Lesson 200 - Refactoring Database Connections ////////////////

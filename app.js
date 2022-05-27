@@ -2965,6 +2965,29 @@ Now that we added this, now we need to go to our command prompt or terminal and 
 Now we need to say we need to a commit with a message
 => git commit -am "first launch - initial commit"
 
+OK, now we need to push these changes to our application.
+=> git push heroku master
+
+And now if we open our app, by clicking "Open App" in Heroku, it's giving us an error here.
+Let's find out what the error is.
+
+Ok let's go back to our application in app.js
+Yes, and the error here is super simple to fix.
+OK, it's because we are actually listening to port 4500,
+we're not listening to a different port, so.
+
+Step 175: We need to make this a little bit more flexible.
+OK, so it listens to a production port to a server on the cloud port.
+So, I'm going to create a constant for port
+=> const port = process.env.PORT || 4500;
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
+});
+
+Now, we need to do all these steps again in the terminal
+=> git add .
+
+
 //////////////// Section 26 Extra Features - Deployment - Lesson 200 - Refactoring Database Connections ////////////////
 
 
@@ -3087,7 +3110,13 @@ app.use("/admin/posts", posts); // Step 49
 app.use("/admin/categories", categories); // Step 98
 app.use("/admin/comments", comments); // Step 135
 
-// Step 5
-app.listen(4500, () => {
-  console.log(`listening on port 4500`);
+// Step 175
+const port = process.env.PORT || 4500;
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
+
+// Step 5
+// app.listen(4500, () => {
+//   console.log(`listening on port 4500`);
+// });

@@ -1,0 +1,75 @@
+<!-- Section 10 Lesson 81 - Step 43 from "app.js" -->
+
+<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+  <li
+    class="nav-item"
+    data-toggle="tooltip"
+    data-placement="right"
+    title="Dashboard"
+  >
+    <a
+      class="nav-link"
+      href="/admin"
+    ><!-- href - Section 10 Lesson 81 - Step 44 from "app.js" + Section 11 Lesson 84 -->
+      <i class="fa fa-fw fa-dashboard"></i>
+      <span class="nav-link-text">Dashboard</span>
+    </a>
+  </li>
+
+  <li
+    class="nav-item"
+    data-toggle="tooltip"
+    data-placement="right"
+    title="Components"
+  >
+    <a
+      class="nav-link nav-link-collapse collapsed"
+      data-toggle="collapse"
+      href="#collapsePosts"
+      data-parent="#exampleAccordion"
+    ><!-- href - Section 11 Lesson 83 Step 48 -->
+      <i class="fa fa-fw fa-wrench"></i>
+      <span
+        class="nav-link-text"
+      >Posts</span><!-- "Posts" - Section 11 Lesson 83 Step 48 -->
+    </a>
+    <ul
+      class="sidenav-second-level collapse"
+      id="collapsePosts"
+    ><!-- id - Section 11 Lesson 83 Step 48 -->
+      <li>
+        <a href="/admin/posts">All Posts</a><!-- href + "All Posts" - Section 11 Lesson 83 Step 48 -->
+      </li>
+      <li>
+        <a href="/admin/posts/my-posts">My Posts</a><!-- Step 148 -->
+      </li>
+      <li>
+        <a href="/admin/posts/create">Create Post</a><!-- href + "Create Post" - Section 11 Lesson 83 Step 48 -->
+      </li>
+    </ul>
+  </li>
+
+  <li
+    class="nav-item"
+    data-toggle="tooltip"
+    data-placement="right"
+    title="Link"
+  >
+    <a class="nav-link" href="/admin/categories">
+      <i class="fa fa-fw fa-link"></i>
+      <span class="nav-link-text">Categories</span>
+    </a>
+  </li><!-- Step 98 -->
+
+  <li
+    class="nav-item"
+    data-toggle="tooltip"
+    data-placement="right"
+    title="Link"
+  >
+    <a class="nav-link" href="/admin/comments">
+      <i class="fa fa-fw fa-gear"></i>
+      <span class="nav-link-text">Comments</span>
+    </a>
+  </li><!-- Step 137 -->
+</ul>

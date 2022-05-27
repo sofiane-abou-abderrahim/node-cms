@@ -1,0 +1,60 @@
+<!DOCTYPE html><!-- Section 10 Lesson 74 - Step 9 from "app.js" - copied from "index.html" in "BLOG-HOME" folder in the templates folder -->
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Home - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet"><!-- Step 17 from "app.js" - Section 10 Lesson 75 -->
+
+    <!-- Custom styles for the home page -->
+    <link href="/css/blog-home.css" rel="stylesheet"><!-- Step 17 from "app.js" - Section 10 Lesson 75 -->
+
+<!-- Custom styles for the blog post single -->
+    <link href="/css/blog-post.css" rel="stylesheet"><!-- Step 97 -->
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+
+{{> home/home-nav}} <!-- Section 10 Lesson 76 - Step 25 -->
+
+    <!-- Page Content -->
+    <div class="container">
+
+<!-- Step 116 -->
+{{#if errors}}
+{{#each errors}}
+<div class="alert alert-danger">
+  {{message}}
+</div>
+{{/each}}
+{{/if}}
+
+{{> home/form-msgs}} <!-- Step 120 -->
+
+{{{body}}} <!-- Section 10 Lesson 75 - Step 21 -->
+
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+
+{{> home/footer}} <!-- Section 10 Lesson 76 - Step 26 -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,51 @@
+<!-- Section 10 Lesson 74 _ Step 13 from "app.js -->
+
+<!-- Section 10 Lesson 74 - Step 20 -->
+<div class="row">
+
+  <!-- Blog Entries Column -->
+  <div class="col-md-8">
+
+    <!-- Section 10 Lesson 74 - Step 22 -->
+    <h1 class="my-4">Home
+    </h1>
+
+    {{#each posts}}<!-- Step 94 -->
+
+      <!-- Blog Post -->
+      <div class="card mb-4">
+        <img
+          class="card-img-top"
+          src="/uploads/{{file}}"
+          alt="Card image cap"
+        /><!-- file Step 95 -->
+        <div class="card-body">
+          <h2 class="card-title">{{title}}</h2><!-- title Step 95 -->
+          <p class="card-text">{{body}}</p><!-- body Step 95 -->
+          <a href="/post/{{id}}" class="btn btn-primary">Read More &rarr;</a><!-- &rarr; Step 95 + id Step 96 -->
+        </div>
+        <div class="card-footer text-muted">
+          Posted on
+          {{generateDate date "MMMM Do YYYY"}}<!-- Step 95 -->
+          by
+          <a href="#">Start Bootstrap</a>
+        </div>
+      </div>
+
+    {{/each}}<!-- Step 94 -->
+
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center mb-4">
+
+{{#paginate current=current pages=pages}}{{/paginate}}<!-- Step 167 + Step 168 -->
+
+    </ul>
+
+  </div>
+
+  <!-- Sidebar Widgets Column -->
+
+{{> home/sidebar}} <!-- Step 107 -->
+
+</div>
+<!-- /.row -->

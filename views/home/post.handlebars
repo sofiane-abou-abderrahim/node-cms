@@ -1,0 +1,147 @@
+<!-- Section 16 Lesson 26 - Step 97 -->
+
+<div class="row">
+
+  <!-- Post Content Column -->
+  <div class="col-lg-8">
+
+    <!-- Title -->
+    <h1 class="mt-4">{{post.title}}</h1><!-- Step 97 -->
+
+    <!-- Author -->
+    <p class="lead">
+      by
+      <a href="#">{{post.user.firstName}}</a><!-- Step 147 post.user.firstName -->
+    </p>
+
+    <hr />
+
+    <!-- Date/Time -->
+    <p>Posted on
+      {{generateDate date "MMMM Do YYYY"}}
+      at 12:00 PM</p><!-- Step 97 -->
+
+    <hr />
+
+    <!-- Preview Image -->
+    <img
+      class="img-fluid rounded"
+      src="/uploads/{{post.file}}"
+      alt=""
+    /><!-- Step 97 -->
+
+    <hr />
+
+    <!-- Post Content -->
+    <p class="lead">{{post.body}}</p><!-- Step 97 -->
+
+    <hr />
+
+{{#if user}}<!-- Step 144 -->
+
+{{#if post.allowComments}}<!-- Step 144 -->
+
+    <!-- Comments Form -->
+    <div class="card my-4">
+      <h5 class="card-header">Leave a Comment:</h5>
+      <div class="card-body">
+        <form action="/admin/comments" method="post"><!-- Step 135 -->
+          <div class="form-group">
+            <textarea name="body" class="form-control" rows="3"></textarea><!-- Step 135 name -->
+            <input type="hidden" name="id" value="{{post.id}}"><!-- Step 136 -->
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+<!-- Step 144 -->
+{{else}}
+<h4>Comments are not allowed for this post</h4>
+<br>
+<hr>
+
+{{/if}}<!-- Step 144 -->
+
+<!-- Step 144 -->
+{{else}}
+<a href="/login">
+  <h4>You need to login to comment</h4>
+</a>
+<br>
+<hr>
+
+{{/if}}<!-- Step 144 -->
+
+{{#each post.comments}}<!-- Step 145 -->
+
+    <!-- Single Comment -->
+    <div class="media mb-4">
+      <img
+        class="d-flex mr-3 rounded-circle"
+        src="http://placehold.it/50x50"
+        alt=""
+      />
+      <div class="media-body">
+        <h5 class="mt-0">{{user.firstName}}</h5>
+        {{body}}
+      </div><!-- body & user Step 145 + user.firstName 146 -->
+    </div>
+
+{{/each}}<!-- Step 145 -->  
+
+    <!-- Comment with nested comments -->
+    {{!-- <div class="media mb-4">
+      <img
+        class="d-flex mr-3 rounded-circle"
+        src="http://placehold.it/50x50"
+        alt=""
+      />
+      <div class="media-body">
+        <h5 class="mt-0">Commenter Name</h5>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+        ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+        viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+        Donec lacinia congue felis in faucibus.
+
+        <div class="media mt-4">
+          <img
+            class="d-flex mr-3 rounded-circle"
+            src="http://placehold.it/50x50"
+            alt=""
+          />
+          <div class="media-body">
+            <h5 class="mt-0">Commenter Name</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+            scelerisque ante sollicitudin. Cras purus odio, vestibulum in
+            vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+            vulputate fringilla. Donec lacinia congue felis in faucibus.
+          </div>
+        </div>
+
+        <div class="media mt-4">
+          <img
+            class="d-flex mr-3 rounded-circle"
+            src="http://placehold.it/50x50"
+            alt=""
+          />
+          <div class="media-body">
+            <h5 class="mt-0">Commenter Name</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+            scelerisque ante sollicitudin. Cras purus odio, vestibulum in
+            vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+            vulputate fringilla. Donec lacinia congue felis in faucibus.
+          </div>
+        </div>
+
+      </div>
+    </div> --}}
+
+  </div>
+
+  <!-- Sidebar Widgets Column -->
+
+{{> home/sidebar}} <!-- Step 107 -->
+
+</div>
+<!-- /.row -->

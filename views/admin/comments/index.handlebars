@@ -1,0 +1,42 @@
+<!-- Step 137 -->
+
+<h1>Comments</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Status</th><!-- Step 150 -->
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {{#each comments}}
+
+      <tr>
+        <th scope="row">{{id}}</th>
+        <td>{{user.firstName}}</td><!-- Step 139 firstName -->
+        <td>
+          <input
+            data-id="{{id}}"
+            type="checkbox"
+            {{#if approveComment}} checked {{/if}}
+            name="approveComment"
+          /><!-- Step 154 data-id + Step 157 if approveComment -->
+        </td><!-- Step 150 -->
+        <td>{{generateDate
+            date
+            "MMMM Do YYYY"
+          }}</td><!-- Step 139 date format -->
+        <td>
+          <form action="/admin/comments/{{id}}?_method=DELETE" method="post">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </td><!-- Step 140 -->
+      </tr>
+
+    {{/each}}
+  </tbody>
+</table><!-- Step 138 -->

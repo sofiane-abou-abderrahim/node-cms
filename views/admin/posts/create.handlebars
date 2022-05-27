@@ -1,0 +1,81 @@
+<!-- Section 11 - Lesson 85 - Step 53 from "app.js" -->
+
+<h1>Create Post</h1>
+
+<!-- Step 80 -->
+{{#each errors}}
+  <div class="alert alert-danger"><!-- Step 81 -->
+    {{message}}
+  </div>
+{{/each}}
+
+<form
+  action="/admin/posts/create"
+  method="post"
+  enctype="multipart/form-data"
+><!-- enctype="multipart/form-data" - Step 73 -->
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      required
+      name="title"
+      type="text"
+      class="form-control"
+      id="title"
+      placeholder="Enter title"
+    /><!-- required - Step 80 + 82 -->
+  </div>
+  <div class="form-group"><!-- Step 73 -->
+    <label for="file">File Upload</label>
+    <input type="file" name="file" class="form-control" />
+  </div>
+
+  <div class="form-group"><!-- Step 109 -->
+    <label for="status">Category</label>
+    <select name="category" id="status" class="form-control">
+
+      {{#each categories}}
+
+        <option value="{{id}}">{{name}}</option>
+
+      {{/each}}
+
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="status">Status</label>
+    <select name="status" id="status" class="form-control">
+      <option value="public">Public</option>
+      <option value="private">Private</option>
+      <option value="draft">Draft</option>
+    </select>
+  </div><!-- Step 54 -->
+  <div class="form-check">
+    <label
+      for="allowComments"
+      class="form-check-label"
+    ><!-- class="form-check-label" - Lesson 98 -->
+      <input
+        name="allowComments"
+        type="checkbox"
+        class="form-check-input"
+        id="allowComments"
+      />
+      Allow Comments
+    </label>
+  </div>
+  <div class="form-group"><!-- Step 54 -->
+    <label for="body">Body</label>
+    <textarea
+      required
+      name="body"
+      cols="30"
+      rows="10"
+      class="form-control"
+      id="body"
+      placeholder="Enter Description"
+    ></textarea><!-- required - Step 80 + 82 -->
+  </div>
+  <button type="submit" class="btn btn-primary">Create Post</button><!-- Step 53 + Create Post Step 91 -->
+</form>

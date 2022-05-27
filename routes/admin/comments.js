@@ -4,8 +4,9 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../../models/Post"); // Step 136
 const Comment = require("../../models/Comment"); // Step 136
+const { userAuthenticated } = require("../../helpers/authentication");
 
-router.all("/*", (req, res, next) => {
+router.all("/*", userAuthenticated, (req, res, next) => {
   req.app.locals.layout = "admin";
   next();
 }); // Step 137

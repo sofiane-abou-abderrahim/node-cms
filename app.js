@@ -1176,7 +1176,7 @@ So, we already have a route bringing some data at "routes\home\index.js"
     - The date
         => {{generateDate date, "MMMM Do YYYY"}}
     - The content
-        => {{pot.body}}
+        => {{post.body}}
     - The image
         => src="/uploads/{{post.file}}"
 

@@ -3131,8 +3131,12 @@ OK, it's something that I'm using in my PHP projects, used to make the pages a l
 In "views\layouts\admin.handlebars", I'm going to put Turbo Links
 You can read more about it https://github.com/turbolinks/turbolinks
 
-    - Link it in "views\layouts\admin.handlebars"
+    - Download the cdn inhttps://cdnjs.com/libraries/turbolinks/5.0.0 and Link it in "views\layouts\admin.handlebars"
 => https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.js
+
+Look, it's not refreshing anymore. It is serving our content via AJAX. It is replacing everything.
+
+But here's the thing, he only works for links
 
 
 

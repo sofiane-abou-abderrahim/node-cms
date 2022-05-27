@@ -5,7 +5,7 @@ const router = express.Router();
 const Category = require("../../models/Category"); // Step 98
 const { userAuthenticated } = require("../../helpers/authentication"); // Step 133
 
-router.all("/*", (req, res, next) => {
+router.all("/*", userAuthenticated, (req, res, next) => {
   req.app.locals.layout = "admin";
   next();
 });

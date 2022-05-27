@@ -10,7 +10,7 @@ const Comment = require("../../models/Comment"); // Step 172
 const { userAuthenticated } = require("../../helpers/authentication"); // Step 133
 
 // Section 10 Lesson 80 Step 40
-router.all("/*", (req, res, next) => {
+router.all("/*", userAuthenticated, (req, res, next) => {
   req.app.locals.layout = "admin";
   next();
 });

@@ -2998,8 +2998,84 @@ there is still an error
 Let's go to package.json, in scripts and put "start" instead of "test" and put "node app.js" instead of "echo \"Error: no test specified\" && exit 1"
 So this way, Heroku knows exactly what to do with our application
 
+Let's do it again in the terminal
+=> git add .
+=> git commit -m"fixed npm start"
+=> git push heroku master
+
+Now, run your application in the terminal
+=> nodemon app.js
+or
+=> npm start
+It says it is connected
+
+Make sure your whitelist your IP in MongoDB Atlas
+
+Now, refresh your app in Heroku
+Now, you can see your application with the Heroku URL
+
+Our app is almost done there in Heroku, and we can login.
+Let's login here because we have our database in mLab (MongoDB Atlas & MongoDB Compass).
+As you can see, it's working.
+Let's create 10 more posts with Generate
+It's working
+
+So look at that, guys.
+We have our app working 100% in Heroku and mLab (MongoDB Atlas & MongoDB Compass).
 
 //////////////// Section 26 Extra Features - Deployment - Lesson 200 - Refactoring Database Connections ////////////////
+
+So, we need to find a better way of dealing with data that we have in our application when we are pushing to Heroku or to any other platform.
+
+So, right now, we are pushing our information when we do it to git push heroku master, right?
+We're pushing this to the cloud and this is not a very recommend it, OK?
+
+You don't want to do this.
+So we need to find:
+    - A way to secure information.
+So nobody sees this when we're pushing data.
+    - And a more flexible way to switch from development to production environment.
+
+OK, so I'm going to create a couple more files here and we're going to try to do some type of IF conditions trying to detect to see if we are in production or development.
+And then depending on that, we're going to be either using a database that is in our system or a remote database.
+We want to use the remote database when we are in production.
+So we need to find a way to detect that.
+
+Now, if I go here in app.js, you can see that I'm using const { mongoDbUrl } = require("./config/database"); // Step 123
+I'm including this file "config/database", so this is going to be our main file here
+This is where we're going to be having a some type of IF conditions to detect to see where we are either in production or development.
+
+Step 176: Create a couple of more files
+    - In "config", create a file called "dev-database.js"
+That is going to be our database for development
+Add it to git
+=> git add config/dev-database.js
+    - In config, create another file called "prod-database.js"
+    - Now, copy the code from "config/database.js" and paste it in those 2 files, then make the changes
+
+    - In database.js, do the IF statement
+=> if (process.env.NODE_ENV === "production") {
+  module.exports = require("./prod-database");
+} else {
+  module.exports = require("./dev-database");
+}
+
+One thing to keep in mind is that when we are in production, we could put this value "mongodb+srv://Com4Muz:ejgwlPjS7onYjSZM@localhost.8urmd.mongodb.net/cms" in Heroku.
+    - Let's go to Heroku, then Settings,click on Reveal Config Vars
+We could create variables here to keep this information from being in our application.
+    - So, in prod-database.js, cut the value "mongodb+srv://Com4Muz:ejgwlPjS7onYjSZM@localhost.8urmd.mongodb.net/cms"and paste it in Heroku in the Value field
+    - Now, Create an environment variable and call it for example "MONGO_DB_URI" and paste it in Heroku in the Key field
+    - Then click add in Heroku
+    - Now, in prod-database.js, put the Key instead of the old value
+=> module.exports = {
+  mongoDbUrl: process.env.MONGO_DB_URI,
+};
+
+Now, let's push this to Heroku from the terminal
+=> git add .
+
+Now, let's turn on our application from the terminal
+=> nodemon app.js
 
 
 

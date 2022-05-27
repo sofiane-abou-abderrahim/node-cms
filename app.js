@@ -3079,12 +3079,38 @@ Now, let's push this to Heroku from the terminal
 Open your Heroku app from the terminal
 => heroku open
 
-Now, let's turn on our application from the terminal
-=> nodemon app.js
+
+//////////////// Section 26 Extra Features - Deployment - Lesson 201 - Let's add a domain ////////////////
+
+Let's add your domain
+
+Let's go to your Heroku application, in Settings, click Add Domain
 
 
+//////////////// Section 26 Extra Features - Deployment - Lesson 202 - WYSIWYG Editor ////////////////
 
-//////////////// Section 26 Extra Features - Deployment - Lesson 201 - Refactoring Database Connections ////////////////
+So on this lecture, I'm going to show you how to create or install a WYSIWYG Editor into our project
+So all you have to do is go online and find one.
+There is one very good called CK Editor
+But just in case this one starts charging on this in the future or is not available, just type in WYSIWYG Editor on your Google.
+So I'm looking for the CDN
+=> ck editor cdn
+=> https://cdn.ckeditor.com/
+
+Step 177: Install CK Editor CDN
+    - Copy the link and paste it in "views\layouts\admin.handlebars"
+I'm going to put it all the way in the bottom of the file before the body tag right here.
+Now, I want to do this because I want to make sure that all the documents, all the links and everything have loaded before I play around with scripts.
+
+But, if it doesn't work try to put it in the head
+
+    - After this, all I have to do is start it up.
+OK, so I'm going to use this function here.
+=> <script>
+CKEDITOR.replace('body');
+</script>
+
+    - Or you can extract this. So, you go to https://cdn.ckeditor.com/ and you download the whole file from the cdn, then save the file in my project like in the public directory or something like that and call it "ckeditor.js" and load it from your project locally
 
 
 

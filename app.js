@@ -3126,6 +3126,15 @@ But keep in mind that we are we still have the old functionality where we are lo
     - In the views home index "views\home\index.handlebars" replace the {{id}} by the {{slug}}
 => <a href="/post/{{slug}}" class="btn btn-primary">Read More &rarr;</a>
 
+    - Now for the feature that I wanted to talk to you guys about.
+OK, it's something that I'm using in my PHP projects, used to make the pages a lot faster.
+In "views\layouts\admin.handlebars", I'm going to put Turbo Links
+You can read more about it https://github.com/turbolinks/turbolinks
+
+    - Link it in "views\layouts\admin.handlebars"
+=> https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.js
+
+
 
 
 */

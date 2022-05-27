@@ -3099,6 +3099,7 @@ So I'm looking for the CDN
 
 Step 177: Install CK Editor CDN
     - Copy the link and paste it in "views\layouts\admin.handlebars"
+=> <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
 I'm going to put it all the way in the bottom of the file before the body tag right here.
 Now, I want to do this because I want to make sure that all the documents, all the links and everything have loaded before I play around with scripts.
 
@@ -3113,6 +3114,17 @@ CKEDITOR.replace('body');
     - Or you can extract this. So, you go to https://cdn.ckeditor.com/ and you download the whole file from the cdn, then save the file in my project like in the public directory or something like that and call it "ckeditor.js" and load it from your project locally
 
 
+//////////////// Section 26 Extra Features - Deployment - Lesson 203 - NEW - Fixing the home link and making our APPS Faster ////////////////
+
+On this lecture, we're going to fix a little bug that we have in the project,
+and I'm also going to introduce you to a pretty cool functionality that I found.
+OK, that's going to make your application a lot faster.
+OK, or at least look a lot faster and feel like it.
+
+Step 178: So first of all, if you notice in the home page, when we click on this link here "Read More",
+But keep in mind that we are we still have the old functionality where we are looking for an ID.
+    - In the views home index "views\home\index.handlebars" replace the {{id}} by the {{slug}}
+=> <a href="/post/{{slug}}" class="btn btn-primary">Read More &rarr;</a>
 
 
 

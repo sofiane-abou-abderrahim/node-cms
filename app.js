@@ -3073,6 +3073,11 @@ We could create variables here to keep this information from being in our applic
 
 Now, let's push this to Heroku from the terminal
 => git add .
+=> git commit -m"added environment variables"
+=> git push heroku master
+
+Open your Heroku app from the terminal
+=> heroku open
 
 Now, let's turn on our application from the terminal
 => nodemon app.js

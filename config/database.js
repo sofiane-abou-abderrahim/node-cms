@@ -7,7 +7,7 @@
 
 // Step 176
 if (process.env.NODE_ENV === "production") {
-  module.exports = require("./prod-database");
+  module.exports = require("./prd-database");
 } else {
   module.exports = require("./dev-database");
 }

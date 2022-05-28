@@ -1,5 +1,5 @@
 {
-  "name": "cms",
+  "name": "node-cms",
   "version": "1.0.1",
   "description": "A CMS in NODE.js",
   "main": "app.js",

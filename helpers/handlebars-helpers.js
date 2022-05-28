@@ -1,25 +1,19 @@
-/* Section 11 Lesson 96 - Step 66 */
-
-const moment = require("moment"); // Step 92
+const moment = require("moment");
 
 module.exports = {
   select: function (selected, options) {
-    // Step 66 + 67
-
     return options
       .fn(this)
       .replace(
         new RegExp(' value="' + selected + '"'),
         '$&selected="selected"'
-      ); // Step 67
+      );
   },
 
-  // Step 92
   generateDate: function (date, format) {
     return moment(date).format(format);
   },
 
-  // Step 166 + Step 168 + Step 169 + Step 170 + Step 171
   paginate: function (options) {
     let output = "";
     if (options.hash.current === 1) {

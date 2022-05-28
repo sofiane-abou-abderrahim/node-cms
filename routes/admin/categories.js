@@ -1,9 +1,7 @@
-// Step 98
-
 const express = require("express");
 const router = express.Router();
-const Category = require("../../models/Category"); // Step 98
-const { userAuthenticated } = require("../../helpers/authentication"); // Step 133
+const Category = require("../../models/Category");
+const { userAuthenticated } = require("../../helpers/authentication");
 
 router.all("/*", userAuthenticated, (req, res, next) => {
   req.app.locals.layout = "admin";
@@ -12,8 +10,8 @@ router.all("/*", userAuthenticated, (req, res, next) => {
 
 router.get("/", (req, res) => {
   Category.find({}).then((categories) => {
-    res.render("admin/categories/index", { categories: categories }); // Step 98 + Step 102
-  }); // Step 102
+    res.render("admin/categories/index", { categories: categories });
+  });
 });
 
 router.post("/create", (req, res) => {
@@ -23,13 +21,13 @@ router.post("/create", (req, res) => {
   newCategory.save().then((savedCategory) => {
     res.redirect("/admin/categories");
   });
-}); // Step 101
+});
 
 router.get("/edit/:id", (req, res) => {
   Category.findOne({ _id: req.params.id }).then((category) => {
     res.render("admin/categories/edit", { category: category });
   });
-}); // Step 104
+});
 
 router.put("/edit/:id", (req, res) => {
   Category.findOne({ _id: req.params.id }).then((category) => {
@@ -38,12 +36,12 @@ router.put("/edit/:id", (req, res) => {
       res.redirect("/admin/categories");
     });
   });
-}); // Step 105
+});
 
 router.delete("/:id", (req, res) => {
   Category.remove({ _id: req.params.id }).then((result) => {
     res.redirect("/admin/categories");
   });
-}); // Step 106
+});
 
 module.exports = router;

@@ -1,24 +1,18 @@
-<!-- Section 10 Lesson 79 - Step 39 from "app.js" -->
-
 <h1>ALL POSTS</h1>
 
-<!-- Step 87 -->
-{{!-- {{> home/form-msgs}} --}}<!-- Step 90 -->
-
-<!-- Section 11 Lesson 92 Step 62 + 63 -->
 <table class="table table-bordered">
 
   <thead>
     <tr>
 
       <th>Id</th>
-      <th>File</th><!-- Step 78 -->
+      <th>File</th>
       <th>Title</th>
       <th>Status</th>
-      <th>Category</th><!-- Step 112 -->
+      <th>Category</th>
       <th>Allow Comments</th>
-      <th>View Post</th><!-- Step 148 -->
-      <th>Date</th><!-- Step 92 -->
+      <th>View Post</th>
+      <th>Date</th>
 
     </tr>
   </thead>
@@ -35,25 +29,13 @@
             class="img-responsive"
             src="/uploads/{{file}}"
             alt="{{file}}"
-          /></td><!-- Step 78 -->
+          /></td>
         <td>{{title}}</td>
         <td>{{status}}</td>
-        <td>{{category.name}}</td><!-- Step 112 -->
+        <td>{{category.name}}</td>
         <td>{{allowComments}}</td>
-        <td><a
-            href="/post/{{slug}}"
-          >View</a></td><!-- Step 148 + slug Step 164-->
-        <td>{{generateDate date "MMMM Do YYYY"}}</td><!-- Step 92 + Step 93 -->
-        {{!-- <td><a
-            href="/admin/posts/edit/{{id}}"
-            class="btn btn-info"
-          >Edit</a></td>
-        <td><!-- Step 70 -->
-          <form action="/admin/posts/{{id}}?_method=DELETE" method="post">
-            <button type="submit" class="btn btn-danger">DELETE</button>
-          </form>
-        </td> --}}
-        {{!-- <td>{{generateDate date 'MMMM Do YYYY'}}</td> --}}
+        <td><a href="/post/{{slug}}">View</a></td>
+        <td>{{generateDate date "MMMM Do YYYY"}}</td>
 
       </tr>
 

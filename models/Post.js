@@ -1,18 +1,14 @@
-/* Section 11 Lesson 87 */
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const URLSlugs = require("mongoose-url-slugs");
 
-const mongoose = require("mongoose"); // Step 56
-const Schema = mongoose.Schema; // Step 56
-const URLSlugs = require("mongoose-url-slugs"); // Step 162
-
-// Step 56
 const PostSchema = new Schema(
   {
     user: {
       type: Schema.Types.ObjectId,
       ref: "users",
-    }, // Step 147
+    },
 
-    // Step 108
     category: {
       type: Schema.Types.ObjectId,
       ref: "categories",
@@ -23,7 +19,6 @@ const PostSchema = new Schema(
       required: true,
     },
 
-    // Step 162
     slug: {
       type: String,
     },
@@ -43,12 +38,10 @@ const PostSchema = new Schema(
       require: true,
     },
 
-    // Step 75
     file: {
       type: String,
     },
 
-    // Step 92
     date: {
       type: Date,
       default: Date.now(),
@@ -59,11 +52,11 @@ const PostSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "comments",
       },
-    ], // Step 134
+    ],
   },
   { usePushEach: true }
-); // Step 136 {usePushEach: true}
+);
 
-PostSchema.plugin(URLSlugs("title", { field: "slug" })); // Step 162
+PostSchema.plugin(URLSlugs("title", { field: "slug" }));
 
-module.exports = mongoose.model("posts", PostSchema); // Step 57
+module.exports = mongoose.model("posts", PostSchema);

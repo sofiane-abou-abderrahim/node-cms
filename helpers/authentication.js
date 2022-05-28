@@ -1,5 +1,3 @@
-/* Step 133 */
-
 module.exports = {
   userAuthenticated: function (req, res, next) {
     if (req.isAuthenticated()) {

@@ -1,5 +1,3 @@
-/* Step 114 */
-
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;

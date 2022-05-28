@@ -1,11 +1,7 @@
-<!-- Step 98 -->
 <h1>Create Category</h1>
-<div class="row"><!-- Step 99 -->
+<div class="row">
   <div class="col-sm-4">
-    <form
-      action="/admin/categories/create"
-      method="post"
-    ><!-- method Step 101 -->
+    <form action="/admin/categories/create" method="post">
       <div class="form-group">
         <label for="name">Name</label>
         <input
@@ -19,7 +15,7 @@
     </form>
   </div>
 
-  <div class="col-sm-8"><!-- Step 100 -->
+  <div class="col-sm-8">
     <h5>All Categories</h5>
     <table class="table">
       <thead>
@@ -32,22 +28,22 @@
       </thead>
       <tbody>
 
-        {{#each categories}}<!-- Step 102 -->
+        {{#each categories}}
 
           <tr>
-            <td>{{id}}</td><!-- id Step 102 -->
-            <td>{{name}}</td><!-- name Step 102 -->
+            <td>{{id}}</td>
+            <td>{{name}}</td>
             <td><a
                 href="/admin/categories/edit/{{id}}"
                 class="btn btn-info"
-              >Edit</a></td><!-- Step 103 -->
+              >Edit</a></td>
             <td>
               <form
                 action="/admin/categories/{{id}}?_method=DELETE"
                 method="post"
               >
                 <button class="btn btn-danger">Delete</button>
-              </form><!-- Step 106 -->
+              </form>
             </td>
           </tr>
 

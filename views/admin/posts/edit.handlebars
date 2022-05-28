@@ -1,57 +1,55 @@
-<!-- Section 11 - Lesson 94 - Copied from create.handlebars - Step 64 from "app.js" -->
-
 <h1>Edit Post</h1>
 
-<form action="/admin/posts/edit/{{post.id}}?_method=PUT" method="post" enctype="multipart/form-data"><!-- /post.id?_method=PUT - Step 68 --><!-- enctype="multipart/form-data" Step 88 -->
+<form action="/admin/posts/edit/{{post.id}}?_method=PUT" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">Title</label>
-        <input required name="title" type="text" class="form-control" id="title" value="{{post.title}}" ><!-- value - Step 65 -->
+        <input required name="title" type="text" class="form-control" id="title" value="{{post.title}}" >
     </div>
-    <div class="form-group"><!-- Step 88 -->
+    <div class="form-group">
         <label for="file">File Upload</label>
         <input type="file" name="file" class="form-control" >
     </div>
 
-    <div class="form-group"><!-- Step 108 -->
+    <div class="form-group">
         <label for="status">Category</label>
         <select name="category" id="status" class="form-control">
 
-{{#select post.category}}<!-- Step 113 -->
+{{#select post.category}}
 
-        {{#each categories}}<!-- Step 113 -->
+        {{#each categories}}
 
             <option value="{{id}}">{{name}}</option>
             
-        {{/each}}<!-- Step 113 -->
+        {{/each}}
         
- {{/select}}<!-- Step 113 -->
+ {{/select}}
 
         </select>
-    </div><!-- Step 108 -->
+    </div>
 
     <div class="form-group">
         <label for="status">Status</label>
         <select name="status" id="status" class="form-control">
 
-{{#select post.status}} <!-- Step 66 + 67 -->
+{{#select post.status}}
 
             <option value="public">Public</option>
             <option value="private">Private</option>
             <option value="draft">Draft</option>
 
-{{/select}} <!-- Step 66 + 67 -->
+{{/select}}
 
         </select>
     </div>
     <div class="form-check">
-        <label for="allowComments" class="form-check-label"><!-- class="form-check-label" - Lesson 98 -->
-        <input name="allowComments" type="checkbox" {{#if post.allowComments}} checked="checked" {{/if}} class="form-check-input" id="allowComments"><!-- checked - Step 65 -->
+        <label for="allowComments" class="form-check-label">
+        <input name="allowComments" type="checkbox" {{#if post.allowComments}} checked="checked" {{/if}} class="form-check-input" id="allowComments">
             Allow Comments
         </label>
     </div>
     <div class="form-group">
         <label for="body">Body</label>
-        <textarea required  name="body" cols="30" rows="10" class="form-control" id="body">{{post.body}}</textarea><!-- body - Step 65 -->
+        <textarea required  name="body" cols="30" rows="10" class="form-control" id="body">{{post.body}}</textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Update Post</button><!-- Update Post Step 91 -->
+    <button type="submit" class="btn btn-primary">Update Post</button>
 </form>

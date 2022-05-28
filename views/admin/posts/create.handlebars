@@ -1,19 +1,12 @@
-<!-- Section 11 - Lesson 85 - Step 53 from "app.js" -->
-
 <h1>Create Post</h1>
 
-<!-- Step 80 -->
 {{#each errors}}
-  <div class="alert alert-danger"><!-- Step 81 -->
+  <div class="alert alert-danger">
     {{message}}
   </div>
 {{/each}}
 
-<form
-  action="/admin/posts/create"
-  method="post"
-  enctype="multipart/form-data"
-><!-- enctype="multipart/form-data" - Step 73 -->
+<form action="/admin/posts/create" method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="title">Title</label>
     <input
@@ -23,14 +16,14 @@
       class="form-control"
       id="title"
       placeholder="Enter title"
-    /><!-- required - Step 80 + 82 -->
+    />
   </div>
-  <div class="form-group"><!-- Step 73 -->
+  <div class="form-group">
     <label for="file">File Upload</label>
     <input type="file" name="file" class="form-control" />
   </div>
 
-  <div class="form-group"><!-- Step 109 -->
+  <div class="form-group">
     <label for="status">Category</label>
     <select name="category" id="status" class="form-control">
 
@@ -50,12 +43,9 @@
       <option value="private">Private</option>
       <option value="draft">Draft</option>
     </select>
-  </div><!-- Step 54 -->
+  </div>
   <div class="form-check">
-    <label
-      for="allowComments"
-      class="form-check-label"
-    ><!-- class="form-check-label" - Lesson 98 -->
+    <label for="allowComments" class="form-check-label">
       <input
         name="allowComments"
         type="checkbox"
@@ -65,7 +55,7 @@
       Allow Comments
     </label>
   </div>
-  <div class="form-group"><!-- Step 54 -->
+  <div class="form-group">
     <label for="body">Body</label>
     <textarea
       required
@@ -75,7 +65,7 @@
       class="form-control"
       id="body"
       placeholder="Enter Description"
-    ></textarea><!-- required - Step 80 + 82 -->
+    ></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Create Post</button><!-- Step 53 + Create Post Step 91 -->
+  <button type="submit" class="btn btn-primary">Create Post</button>
 </form>

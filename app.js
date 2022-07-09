@@ -20,7 +20,9 @@ mongoose
   .then((db) => {
     console.log("MONGODB connected");
   })
-  .catch((err) => console.log(err));
+  .catch((error) => console.log(error));
+
+// Using Static
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -34,7 +36,7 @@ const {
 
 app.engine(
   "handlebars",
-  exphbs({
+  exphbs.engine({
     handlebars: allowInsecurePrototypeAccess(Handlebars),
     defaultLayout: "home",
     helpers: { select: select, generateDate: generateDate, paginate: paginate },
@@ -76,6 +78,7 @@ app.use((req, res, next) => {
   res.locals.error_message = req.flash("error_message");
   res.locals.user = req.user || null;
   res.locals.error = req.flash("error");
+  res.locals.form_errors = req.flash("form_errors");
   next();
 });
 

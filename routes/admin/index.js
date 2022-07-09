@@ -34,7 +34,7 @@ router.post("/generate-fake-posts", (req, res) => {
     post.status = "public";
     post.allowComments = faker.random.boolean();
     post.body = faker.lorem.sentence();
-    post.slug = faker.name.title(); // Step 165
+    post.slug = faker.name.title();
     post.save(function (err) {
       if (err) throw err;
     });

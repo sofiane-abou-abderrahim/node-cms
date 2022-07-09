@@ -46,7 +46,7 @@ router.get("/login", (req, res) => {
 
 passport.use(
   new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
-    console.log(email);
+    // console.log(email);
 
     User.findOne({ email }).then((user) => {
       if (!user) return done(null, false, { message: "NO USER FOUND" });
@@ -81,7 +81,7 @@ router.post("/login", (req, res, next) => {
 });
 
 router.get("/logout", (req, res) => {
-  req.logout();
+  req.logOut();
   res.redirect("/login");
 });
 
@@ -126,7 +126,6 @@ router.post("/register", (req, res) => {
   } else {
     User.findOne({ email: req.body.email }).then((user) => {
       if (!user) {
-        // Step 117
         const newUser = new User({
           firstName: req.body.firstName,
           lastName: req.body.lastName,

@@ -64,7 +64,7 @@ router.post("/create", (req, res) => {
     } else {
       allowComments = false;
     }
-    console.log(allowComments);
+    // console.log(allowComments);
     const newPost = new Post({
       user: req.user.id,
       title: req.body.title,

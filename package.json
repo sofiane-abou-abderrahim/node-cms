@@ -24,7 +24,7 @@
     "handlebars": "^4.7.7",
     "method-override": "^3.0.0",
     "moment": "^2.29.3",
-    "mongoose": "^6.3.0",
+    "mongoose": "^6.11.3",
     "mongoose-url-slugs": "^0.1.4",
     "node": "^17.7.2",
     "nodemon": "^2.0.16",
